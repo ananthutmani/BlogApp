@@ -23,6 +23,7 @@ var commentRoutes = require("./routes/comments"),
 // })
 //     .then(() => console.log('Connected to DB!'))
 //     .catch(error => console.log(error.message)); 
+
 mongoose.connect("mongodb+srv://ananthutmani:yelpcampmainadmin@yelpcamp-project.hffzi.mongodb.net/yelp_camp?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -64,7 +65,3 @@ var port = process.env.PORT || 3000;
 app.listen(port, function () {
     console.log("Server Has Started!");
 });
-
-
-// user: ananthu t mani
-// pass: pass
