@@ -6,7 +6,7 @@ var express = require("express"),
     flash = require("connect-flash"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
-    Campground = require("./models/campgrounds"),
+    Blog = require("./models/blogs"),
     methodOverride = require("method-override"),
     Comment = require("./models/comment"),
     User = require("./models/user"),
@@ -14,10 +14,10 @@ var express = require("express"),
 
 // REQUIRING ROUTES
 var commentRoutes = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
+    blogRoutes = require("./routes/blogs"),
     indexRoutes = require("./routes/index")
 
-var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+var url = "mongodb://localhost/rset_pes_blog_app";
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -35,7 +35,7 @@ app.use(flash());
 
 // PASSPORT CONFIGURATION   
 app.use(require("express-session")({
-    secret: "Once again Rusty wins cutest dog!",
+    secret: "Nothing much!",
     resave: false,
     saveUninitialized: false
 }));
@@ -53,8 +53,8 @@ app.use(function (req, res, next) {
 });
 
 app.use("/", indexRoutes);
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/comments", commentRoutes);
+app.use("/blogs", blogRoutes);
+app.use("/blogs/:id/comments", commentRoutes);
 
 var port = process.env.PORT || 3000;
 app.listen(port, function () {

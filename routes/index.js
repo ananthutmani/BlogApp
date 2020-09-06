@@ -30,15 +30,15 @@ router.post("/register", function (req, res) {
             return res.render("register", { error: err.message });
         }
         passport.authenticate("local")(req, res, function () {
-            req.flash("success", "Welcome to YelpCamp " + user.username);
-            res.redirect("/campgrounds");
+            req.flash("success", "Welcome to RSET Connect " + user.username);
+            res.redirect("/blogs");
         })
     });
 })
 
 // Handling post logic
 router.post("/login", passport.authenticate("local", {
-    successRedirect: "/campgrounds",
+    successRedirect: "/blogs",
     failureRedirect: "/login"
 }), function (req, res) { });
 
@@ -46,7 +46,7 @@ router.post("/login", passport.authenticate("local", {
 router.get("/logout", function (req, res) {
     req.logout();
     req.flash("success", "You've been logged out.");
-    res.redirect("/campgrounds");
+    res.redirect("/blogs");
 });
 
 module.exports = router;

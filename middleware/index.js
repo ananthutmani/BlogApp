@@ -1,17 +1,17 @@
 // ALL MIDDLEWARE GOES HERE
-var Campground = require("../models/campgrounds");
+var Blog = require("../models/blogs");
 var Comment = require("../models/comment");
 var middlewareObj = {};
 
-middlewareObj.checkCampgroundOwnership = function (req, res, next) {
+middlewareObj.checkBlogOwnership = function (req, res, next) {
     if (req.isAuthenticated()) {
-        Campground.findById(req.params.id, function (err, foundCampground) {
+        Blog.findById(req.params.id, function (err, foundBlog) {
             if (err) {
-                req.flash("error", "Campground not found.");
+                req.flash("error", "Blog not found.");
                 res.redirect("back");
             }
             else {
-                if (foundCampground.author.id.equals(req.user._id)||(req.user.isAdmin)) {
+                if (foundBlog.author.id.equals(req.user._id)||(req.user.isAdmin)) {
                     next();
                 }
                 else {
