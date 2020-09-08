@@ -10,10 +10,7 @@ var express = require("express"),
     methodOverride = require("method-override"),
     Comment = require("./models/comment"),
     User = require("./models/user"),
-    fs = require('fs'),
-    path = require('path'),
     seedDB = require("./seeds");
-require('dotenv/config');
 
 // REQUIRING ROUTES
 var commentRoutes = require("./routes/comments"),
