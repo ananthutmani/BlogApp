@@ -25,3 +25,20 @@ html,body {
 .comment{
     margin-bottom: 20px;
 }
+
+.image-preview{
+    min-height: 25vh;
+    margin-top: 2vh;
+
+    /* Def text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #919191;
+    overflow: hidden;
+}
+.boilerplate-image{
+    display: none;
+    height: 100%;
+    width: auto;
+}

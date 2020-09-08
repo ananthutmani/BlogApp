@@ -10,7 +10,8 @@
                 <input class="form-control" type="text" name="blog[image]" value="<%= blog.image %>">
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="blog[description]" value="<%= blog.description %>">
+                <!-- <input class="form-control" type="text" name="blog[description]" value=""> -->
+                <textarea class="form-control" name="blog[description]" cols="30" rows="4"><%= blog.description %></textarea>
             </div>
             <div class="form-group">
                 <input class="form-control" type="number" name="blog[price]" min="300" step="10"

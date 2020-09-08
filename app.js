@@ -10,14 +10,17 @@ var express = require("express"),
     methodOverride = require("method-override"),
     Comment = require("./models/comment"),
     User = require("./models/user"),
+    fs = require('fs'),
+    path = require('path'),
     seedDB = require("./seeds");
+require('dotenv/config');
 
 // REQUIRING ROUTES
 var commentRoutes = require("./routes/comments"),
     blogRoutes = require("./routes/blogs"),
     indexRoutes = require("./routes/index")
 
-var url = "mongodb://localhost/rset_pes_blog_app";
+var url = process.env.DATABASEURL || "mongodb://localhost/rset_pes_blog_app";
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
